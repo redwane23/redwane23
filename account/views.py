@@ -5,7 +5,7 @@ from .forms import UserRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 # Create your views here.
-def creat_account(request): 
+async def creat_account(request): 
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
