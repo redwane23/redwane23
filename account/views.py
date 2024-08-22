@@ -1,11 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
-from django.db.backends.base.base import DatabaseWrapper
+from django.urls import reverse
 from asgiref.sync import sync_to_async
 from .forms import UserRegistrationForm
-from django.urls import reverse
 
 # Helper to handle synchronous operations within async views
 database_sync_to_async = sync_to_async
