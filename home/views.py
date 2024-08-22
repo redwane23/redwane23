@@ -13,7 +13,7 @@ from django.http import JsonResponse
 
 db = IP2Location.IP2Location("db/IP2LOCATION-LITE-DB1.BIN")
 
-def get_country(request):
+async def get_country(request):
     user_ip = request.META.get('REMOTE_ADDR')  # Get the user's IP address
     record = db.get_all(user_ip)
     country = record.country_short
@@ -27,7 +27,7 @@ class IndexView(generic.ListView):
     country=get_country
     extra_context = {'users': users,'country':country}
     
-    def get_queryset(self):
+    async def get_queryset(self):
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by
         ("-pub_date")
 
@@ -35,7 +35,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Question
     template_name = "home/detail.html"
-    def get_queryset(self):
+    async def get_queryset(self):
         return Question.objects.filter(pub_date__lte=timezone.now())
     
 class ResultsView(generic.DetailView):
@@ -43,7 +43,7 @@ class ResultsView(generic.DetailView):
     template_name = "home/results.html"
 
     
-def vote(request, question_id):
+async def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
@@ -65,7 +65,7 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse("home:results", args=(question.id,)))
 @login_required
-def add_question(request):
+async def add_question(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST,request.FILES)
         if form.is_valid():
