@@ -56,7 +56,6 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = "home/results.html"
 
-@require_POST
 async def vote(request, question_id):
     question = await database_sync_to_async(get_object_or_404)(Question, pk=question_id)
     try:
