@@ -83,8 +83,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Base database configuration
 DATABASES = {
     'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/your_database_name',
+        default=os.getenv('DATABASE_URL', 'postgresql://mysite:0gJWU91me7iesOTcn8lap05UnMHlDg1j@dpg-cr1un488fa8c739tsabg-a/mysite_t5d8'),
         conn_max_age=600
     )
 }
