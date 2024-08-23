@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['mysite-g7tr.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application 
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = ''
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -139,6 +139,8 @@ if not DEBUG:
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
 ]
+
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dsjy0vte6',
     'API_KEY': '918538626238721',
