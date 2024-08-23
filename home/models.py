@@ -3,8 +3,11 @@ import datetime
 from django.utils import timezone
 from django.contrib import admin
 from django.contrib.auth.models import User
-# Create your models here.
+from django.db import models
 
+class MyModel(models.Model):
+    image = models.ImageField(upload_to='images/')
+    
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
