@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary_storage.storage import MediaCloudinaryStorage
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -136,11 +139,14 @@ if not DEBUG:
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
 ]
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dsjy0vte6',
+    'API_KEY': '918538626238721',
+    'API_SECRET': 'Fih_dgge8tSm-DkFVV3EHwPydb0',
+}
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 PORT = os.getenv('PORT', '8000') 
