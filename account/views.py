@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
-# Create your views here.
+
 def create_account(request): 
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -21,3 +21,6 @@ def create_account(request):
 
 class CustomLoginView(LoginView):
     template_name = 'account/login.html'
+
+def my_account(request):
+    return render(request,"account/my_account.html")
