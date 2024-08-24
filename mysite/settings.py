@@ -142,13 +142,11 @@ STATICFILES_DIRS = [
 ]
 
 
-CLOUDINARY_STORAGE = {
+cloudinary.config (
     'CLOUD_NAME': 'dsjy0vte6',
     'API_KEY': '918538626238721',
     'API_SECRET': 'Fih_dgge8tSm-DkFVV3EHwPydb0',
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PORT = os.getenv('PORT', '8000') 
