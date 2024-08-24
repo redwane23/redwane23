@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'account.apps.AccountConfig'
-    'Cloudinary '
+    'account.apps.AccountConfig',
+    'Cloudinary ',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -141,12 +142,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
 ]
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dsjy0vte6',
+    'API_KEY': '918538626238721',
+    'API_SECRET': 'Fih_dgge8tSm-DkFVV3EHwPydb0',
+}
 
-cloudinary.config (
-    cloud_name = 'dsjy0vte6',
-    api_ket= '918538626238721',
-    api_secret= 'Fih_dgge8tSm-DkFVV3EHwPydb0',
-)
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+os.environ['CLOUDINARY_URL'] = 'CLOUDINARY_URL=cloudinary://918538626238721:Fih_dgge8tSm-DkFVV3EHwPydb0@dsjy0vte6'
+
+MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PORT = os.getenv('PORT', '8000') 
