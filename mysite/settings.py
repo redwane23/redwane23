@@ -7,6 +7,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
+
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -108,8 +112,13 @@ STATICFILES_DIRS = [
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+cloudinary.config( 
+    cloud_name = "dsjy0vte6", 
+    api_key = "918538626238721", 
+    api_secret = "Fih_dgge8tSm-DkFVV3EHwPydb0",
+    secure=True
+)
+
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
