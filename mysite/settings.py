@@ -108,7 +108,7 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
-    os.path.joinr(BASE_DIR, "account/static'),
+    os.path.joinr(BASE_DIR, "account/static"),
 ]
 
 BASE_DIR = Path(__file__).resolve().parent.parent
