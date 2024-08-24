@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'account.apps.AccountConfig'
+    'Cloudinary '
 ]
 
 MIDDLEWARE = [
@@ -148,7 +149,6 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PORT = os.getenv('PORT', '8000') 
