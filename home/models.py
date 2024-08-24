@@ -4,14 +4,12 @@ from django.utils import timezone
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.db import models
+from cloudinary.models import CloudinaryField
 
-class MyModel(models.Model):
-    image = models.ImageField(upload_to='images/')
-    
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
-    image=models.ImageField(upload_to="image/",blank=True,null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     @admin.display(
         boolean=True,
