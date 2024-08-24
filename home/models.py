@@ -11,7 +11,7 @@ class MyModel(models.Model):
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
-    image=models.ImageField(upload_to="image/",blank=True,null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     @admin.display(
         boolean=True,
