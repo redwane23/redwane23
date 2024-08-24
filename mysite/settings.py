@@ -105,8 +105,12 @@ if not DEBUG:
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
 ]
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PORT = os.getenv('PORT', '8000') 
