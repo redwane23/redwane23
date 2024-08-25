@@ -4,10 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
+from .forms import AccountCreationFome
 
 def create_account(request): 
     if request.method == 'POST':
-        form = CreationForm(request.POST,request.FILES)
+        form = AccountCreationForm(request.POST,request.FILES)
         if form.is_valid():
             new_user = form.save(commit=False)
             new_user.set_password(form.cleaned_data['password'])
@@ -16,7 +17,7 @@ def create_account(request):
             login(request, user)
             return redirect('')
     else:
-        form =  CreationForm()
+        form =  AccountCreationForm()
     return render(request, 'account/creat_account.html', {'form': form})
 
 class CustomLoginView(LoginView):
