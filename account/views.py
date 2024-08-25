@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from .forms import AccountCreationFome
+from django.contrib.auth.decorators import login_required
 
 def create_account(request): 
     if request.method == 'POST':
@@ -20,6 +21,6 @@ def create_account(request):
 
 class CustomLoginView(LoginView):
     template_name = 'account/login.html'
-
+@login_required
 def my_account(request):
     templet_name='account/my_account.html'
