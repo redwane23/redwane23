@@ -16,11 +16,11 @@
 <div class='posting'>
 
 <p class='greating'>welcome to the public chat {{user.username}}</p>
-<a  href='add/' class='add_question_button'> add question</a>
+<a  href='/add' class='add_question_button'> add question</a>
 
 </div>
 <div class='profile_home'>
-    prfile
+    <img class="image" src="{{ user.profile_pic.url }}" alt="Profile Image">
 </div>
 
 <h1 >the available questions</h1>
