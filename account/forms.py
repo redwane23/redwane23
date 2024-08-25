@@ -1,11 +1,6 @@
 from cloudinary.forms import CloudinaryFileField
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUser
-
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUser
 
 class AccountCreationForm(UserCreationForm):
     password=forms.CharField(label='password',widget=forms.PasswordInput)
