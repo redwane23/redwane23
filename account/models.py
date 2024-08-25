@@ -3,7 +3,7 @@ from cloudinary.models import CloudinaryField
 from django.db import models
 
 class account(AbstractBaseUser, PermissionsMixin):
-  username = mmodels.CharField(max_lenght=50,unique=True)
+  username = models.CharField(max_lenght=50,unique=True)
   email = models.EmailField(unique=True,null=True)
   is_active = models.BooleanField(default=True)
   is_staff = models.BooleanField(default=False)
