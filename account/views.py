@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
-from .forms import AccountCreationFome
+from .forms import AccountCreationForm
 from django.contrib.auth.decorators import login_required
 
 def create_account(request): 
