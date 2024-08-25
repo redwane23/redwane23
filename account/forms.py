@@ -8,12 +8,12 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
 
 class CreationForm(UserCreationForm):
-    password=forms.CharField(widget=forms.PasswordInput)
-    password2=forms.CharField(widget=forms.PasswordInput)
+    password=forms.CharField(label='password',widget=forms.PasswordInput)
+    password2=forms.CharField(label="confirm password",widget=forms.PasswordInput)
     
     class Meta:
         model = account
-        fields = ('username','email', 'bio', 'password')
+        fields = ('username','email', 'bio')
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
