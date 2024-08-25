@@ -12,7 +12,7 @@ def create_account(request):
             new_user = form.save(commit=False)
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
-            user = authenticate(username=new_user.username, password=form.cleaned_data['password'],profile_picture=form.cleaned_data['profile_picture'])
+            user = authenticate(username=new_user.username, password=form.cleaned_data['password'],profile_picture=new_user.profile_pic['profile_picture'])
             login(request, user)
             return render(request,'home/index.html')
     else:
