@@ -13,6 +13,9 @@ def create_account(request):
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
             user = authenticate(username=new_user.username, password=form.cleaned_data['password'])
+            profile_pic = form.cleaned_data.get('profile_pic')
+            if profile_pic:
+                Profile.objects.create(user=user, profile_pic=profile_pic)
             login(request, user)
             return render(request,'home/index.html')
     else:
