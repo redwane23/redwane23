@@ -8,7 +8,7 @@ class UserRegistrationForm(forms.ModelForm):
     profile_picture = CloudinaryField('image', blank=True, null=True)
     class Meta:
         model = User
-        fields = ['username','profile_picture']
+        fields = ['username']
 
     def clean_password2(self):
         cd = self.cleaned_data
