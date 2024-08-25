@@ -7,20 +7,20 @@ from django.contrib.auth.views import LoginView
 
 def create_account(request): 
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST,request.FILES)
+        form = CreationForm(request.POST,request.FILES)
         if form.is_valid():
             new_user = form.save(commit=False)
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
-            user = authenticate(username=new_user.username, password=form.cleaned_data['password'],profile_picture=new_user.profile_picture)
+            user = authenticate(username=new_user.username, password=form.cleaned_data['password'])
             login(request, user)
-            return render(request,'home/index.html')
+            return redirect('')
     else:
-        form = UserRegistrationForm()
+        form =  CreationForm()
     return render(request, 'account/creat_account.html', {'form': form})
 
 class CustomLoginView(LoginView):
     template_name = 'account/login.html'
 
 def my_account(request):
-    return render(request,"account/my_account.html")
+    return redirect("")
