@@ -13,7 +13,7 @@ class CreationForm(UserCreationForm):
     
     class Meta:
         model = account
-        fields = ('username','email', 'bio')
+        fields = ('username','email', 'bio','profile_pic)
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
