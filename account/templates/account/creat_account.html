@@ -2,40 +2,6 @@
 <link rel="stylesheet" href="{% static 'account/style.css' %}">
 <head>
     <title>Register</title>
-    <head>
-        <title>Register</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
-            }
-            form {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            label {
-                display: block;
-                margin-bottom: 5px;
-            }
-            input {
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-            button {
-                padding: 10px;
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: #45a049;
-            }
-        </style>
     </head>
     
 </head>
@@ -46,5 +12,22 @@
         {{ form.as_p }}
         <button type="submit">Register</button>
     </form>
+        {% if form.errors %}
+        <div class="errors">
+            <h3>There were errors in your form:</h3>
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
 </body>
 </html>
