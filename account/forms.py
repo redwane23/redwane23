@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from cloudinary.forms import CloudinaryImageField
+from cloudinary.models import CloudinaryImageField
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
