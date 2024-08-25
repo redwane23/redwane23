@@ -1,11 +1,11 @@
 from django import forms
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+from cloudinary.forms import CloudinaryFileField
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput, label='Confirm Password')
-    profile_picture = CloudinaryField('image', blank=True, null=True)
+    profile_picture = CloudinaryFileField('image', required=False, label='Profile Picture')
     class Meta:
         model = User
         fields = ['username','profile_picture']
