@@ -1,7 +1,5 @@
-from django.shortcuts import render
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from .forms import AccountCreationFome
@@ -24,4 +22,4 @@ class CustomLoginView(LoginView):
     template_name = 'account/login.html'
 
 def my_account(request):
-    return redirect("")
+    templet_name='account/my_account.html'
