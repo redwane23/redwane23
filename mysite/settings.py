@@ -123,4 +123,4 @@ cloudinary.config(
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-PORT = os.getenv('PORT', '8000') 
+PORT = os.getenv('PORT', '10000') 
