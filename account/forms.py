@@ -5,7 +5,7 @@ from cloudinary.forms import CloudinaryImageField
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput, label='Confirm Password')
-    profile_picture = CloudinaryImageField()
+    profile_picture = CloudinaryImageField(required=False)
     class Meta:
         model = User
         fields = ['username','profile_picture']
