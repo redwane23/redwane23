@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput, label='Confirm Password')
-
+    profile_pic = forms.ImageField(uploade_to"image")
     class Meta:
         model = User
         fields = ['username']
