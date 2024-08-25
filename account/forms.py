@@ -7,7 +7,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
 
-class CreationForm(UserCreationForm):
+class AccountCreationForm(UserCreationForm):
     password=forms.CharField(label='password',widget=forms.PasswordInput)
     password2=forms.CharField(label="confirm password",widget=forms.PasswordInput)
     
