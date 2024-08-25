@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from cloudinary.models import CloudinaryField
 from django.db import models
 
 class account(AbstractBaseUser, PermissionsMixin):
@@ -7,6 +8,7 @@ class account(AbstractBaseUser, PermissionsMixin):
   is_active = models.BooleanField(default=True)
   is_staff = models.BooleanField(default=False)
   bio = CharField(max_lenght=200,blank=True)
+  profile_picture = CloudinaryField('image', blank=True, null=True)
   
   USERNAME_FIELD = 'username'
   REQUIRED_FIELDS = ['email']
