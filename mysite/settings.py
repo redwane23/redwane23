@@ -20,9 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#w#u=n5nv_#uaivs+m4-i@)gvb!h1jy8))vthz^c*(=^&(vn7z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['mysite-g7tr.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['WorldNews24/7.onrender.com', 'localhost', '127.0.0.1']
 # Application 
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = ''
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -69,7 +69,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Base database configuration
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgresql://mysite:0gJWU91me7iesOTcn8lap05UnMHlDg1j@dpg-cr1un488fa8c739tsabg-a/mysite_t5d8'),
+        default=os.getenv('DATABASE_URL', 'postgresql://worldnews24_7_user:ZyKLbc9cL5Qcvtncb4k9wlyj4WSRpCJE@dpg-cr7f992j1k6c739r24rg-a.oregon-postgres.render.com/worldnews24_7/worldnews24_7'),
         conn_max_age=600
     )
 }
