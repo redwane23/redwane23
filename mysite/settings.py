@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'MiOUyQZALAWc3kSVW/bzyzhTMtLCLWl0JaOhSxFTzl0=')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['WorldNews24/7.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['mysite-g7tr.onrender.com', 'localhost', '127.0.0.1']
 # Application 
 LOGIN_REDIRECT_URL = ''
 INSTALLED_APPS = [
