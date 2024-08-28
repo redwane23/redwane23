@@ -72,7 +72,7 @@ import os
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgresql://worldnews24_7_user:ZyKLbc9cL5Qcvtncb4k9wlyj4WSRpCJE@dpg-cr7f992j1k6c739r24rg-a/worldnews24_7'),
+        default=os.getenv('DATABASE_URL', 'postgresql://worldnews24_7_user:ZyKLbc9cL5Qcvtncb4k9wlyj4WSRpCJE@dpg-cr7f992j1k6c739r24rg-a:5432/worldnews24_7'),
         conn_max_age=600
     )
 }
