@@ -67,12 +67,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Base database configuration
+import dj_database_url
+import os
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgresql://worldnews24_7_user:ZyKLbc9cL5Qcvtncb4k9wlyj4WSRpCJE@dpg-cr7f992j1k6c739r24rg-a.oregon-postgres.render.com/worldnews24_7/worldnews24_7'),
+        default=os.getenv('DATABASE_URL', 'postgresql://worldnews24_7_user:ZyKLbc9cL5Qcvtncb4k9wlyj4WSRpCJE@dpg-cr7f992j1k6c739r24rg-a.oregon-postgres.render.com/worldnews24_7'),
         conn_max_age=600
     )
 }
+
 SECRET_KEY = os.getenv('SECRET_KEY')
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
