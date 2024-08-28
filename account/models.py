@@ -1,8 +1,18 @@
 from cloudinary.models import CloudinaryField
-from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 
-class account(AbstractUser):
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email, password, username, bio, profile_picture0):
+        if not email:
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+class account(AbstractBaseUser):
   groups = models.ManyToManyField(Group, related_name="custom_user_set")
   
   user_permissions = models.ManyToManyField(Permission, related_name="custom_user_permissions_set")
@@ -12,6 +22,8 @@ class account(AbstractUser):
   is_staff = models.BooleanField(default=False)
   bio = models.CharField(max_length=200,blank=True)
   profile_picture = CloudinaryField('image', blank=True, null=True)
+
+  objects = CustomUserManager()
   
   USERNAME_FIELD = 'username'
   REQUIRED_FIELDS = ['email']
