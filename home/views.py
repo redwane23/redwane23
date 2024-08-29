@@ -23,7 +23,7 @@ def get_country(request):
 class IndexView(generic.ListView):
     template_name = "home/index.html"
     context_object_name = "question_list"
-    users=User.objects.filter(is_superuser=False)
+    users=User.objects.filter(is_staff=False)
     country=get_country
     extra_context = {'users': users,'country':country}
     
