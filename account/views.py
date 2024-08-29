@@ -5,18 +5,15 @@ from django.contrib.auth.views import LoginView
 from .forms import AccountCreationForm
 from django.contrib.auth.decorators import login_required
 
-def create_account(request): 
+def create_account(request):
     if request.method == 'POST':
-        form = AccountCreationForm(request.POST,request.FILES)
+        form = AccountCreationForm(request.POST)
         if form.is_valid():
-            new_user = form.save(commit=False)
-            new_user.set_password(form.cleaned_data['password'])
-            new_user.save()
-            user = authenticate(username=new_user.username, password=form.cleaned_data['password'])
-            login(request, user)
-            return redirect('')
+            user = form.save()
+            login(request, user)  # Automatically log the user in after registration
+            return redirect('')  # Redirect to the homepage or any other page
     else:
-        form =  AccountCreationForm()
+        form = AccountCreationForm()
     return render(request, 'account/creat_account.html', {'form': form})
 
 class CustomLoginView(LoginView):
