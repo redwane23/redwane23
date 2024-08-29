@@ -2,17 +2,14 @@ from django.db import models
 import datetime
 from django.utils import timezone
 from django.contrib import admin
-from django.contrib.auth.models import User
-from django.db import models
 from cloudinary.models import CloudinaryField
-from account.models import account
 
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
     image = CloudinaryField('image', blank=True, null=True)
-    user = models.ForeignKey(account, on_delete=models.CASCADE,default=1)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default=1)
     @admin.display(
         boolean=True,
         ordering="pub_date",
