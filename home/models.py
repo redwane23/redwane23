@@ -3,6 +3,7 @@ import datetime
 from django.utils import timezone
 from django.contrib import admin
 from cloudinary.models import CloudinaryField
+from django.conf import settings
 
 
 class Question(models.Model):
