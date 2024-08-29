@@ -10,7 +10,7 @@ from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
-
+auth.User
 import os
 
 AUTH_USER_MODEL = 'account.account'
