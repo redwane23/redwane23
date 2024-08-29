@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from django.db import models
 from cloudinary.models import CloudinaryField
+import settings.py
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
