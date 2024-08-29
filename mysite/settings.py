@@ -12,6 +12,9 @@ import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
 
 import os
+
+AUTH_USER_MODEL = 'account.account'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
@@ -127,7 +130,6 @@ cloudinary.config(
 )
 
 
-AUTH_USER_MODEL = 'account.account'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PORT = os.getenv('PORT', '10000') 
