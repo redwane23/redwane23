@@ -127,6 +127,7 @@ cloudinary.config(
 )
 
 
+AUTH_USER_MODEL = 'account.account'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PORT = os.getenv('PORT', '10000') 
