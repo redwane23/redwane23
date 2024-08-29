@@ -6,7 +6,7 @@ from django.db.models import F
 from django.views import generic
 from django.utils import timezone
 from .forms import QuestionForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import account as User
 from django.contrib.auth.decorators import login_required
 import IP2Location
 from django.http import JsonResponse
