@@ -12,7 +12,7 @@ class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
     image = CloudinaryField('image', blank=True, null=True)
-    user = models.ForeignKey(account.account, on_delete=models.CASCADE,default=1)
+    user = models.ForeignKey(account, on_delete=models.CASCADE,default=1)
     @admin.display(
         boolean=True,
         ordering="pub_date",
