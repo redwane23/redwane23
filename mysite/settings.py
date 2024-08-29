@@ -12,7 +12,7 @@ import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
 import os
 
-AUTH_USER_MODEL = 'account.account'
+AUTH_USER_MODEL = 'account.models.account'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
