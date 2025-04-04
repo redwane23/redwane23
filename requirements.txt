@@ -6,3 +6,4 @@ dj-database-url>=0.5.0
 psycopg2-binary>=2.9.5
 cloudinary==1.29.0
 django-cloudinary-storage==0.3.0
+IP2Location==8.10.2
